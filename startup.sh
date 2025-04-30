@@ -3,4 +3,4 @@ function start() {
   startx ~/.xinitrc $1
 }
 
-alias pico8='~/pico-8/pico8'
+PS1="\w \$(get_git_branch_ps1)"
