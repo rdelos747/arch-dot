@@ -28,6 +28,12 @@ Tell Awesome's rc.lua to look for our updated configs in the dotfiles.
 require("config.awesome.rc")
 ```
 
+Create Xresources symlink so awesome can read wal's config.
+```
+cd ~
+ln -s ~/.cache/wal//colors.Xresources .Xresources 
+```
+
 ## .bashrc
 
 Add the following to source the configurations:
@@ -78,6 +84,12 @@ ps -C <command name>
 - Eg `ps -C alacritty` to find pid when alacritty crashes :(
 
 ```
+wal -i ~/Pictures/desktop-images
+```
+- Randomly sets a wallpaper and updates Xresources color scheme.
+- Note: Alacritty will reflect this immediately, but Awesome needs to be restarted to see in the WM.
+
+```
 Xephyr -br -ac -noreset -screen 1000x1000 :1
 
 DISPLAY=:1 awesome
@@ -88,9 +100,10 @@ DISPLAY=:1 awesome
 
 # Required packages
 - awesome
-- nm-applet?
+- feh
+- network-manager-applet (nm-applet)
 - nvidia drivers (system dependent)
-- pciom
+- picom
 - plasma
 - wal
 - xorg-server-xephyr
