@@ -39,6 +39,7 @@ source ~/dotfiles/.source.sh
 
 The `start` command will start x11 with the window manager specified in the first argument. For that to work, create a case statement in .xinitrc with the supported options. For example:
 ```
+session=$1
 case $session in 
     plasma  )   exec startplasma-x11;;
     dwm     )   exec dwm;;
@@ -76,3 +77,20 @@ ps -C <command name>
 - List the pid of all programs under that command.
 - Eg `ps -C alacritty` to find pid when alacritty crashes :(
 
+```
+Xephyr -br -ac -noreset -screen 1000x1000 :1
+
+DISPLAY=:1 awesome
+```
+- Create a nested x server within another wm. Useful for debugging issues with a wm.
+- First command creates the x server window at the desired size with the given index.
+- Second command runs the desired program in the specififed display index (use the index from command above).
+
+# Required packages
+- awesome
+- nm-applet?
+- nvidia drivers (system dependent)
+- pciom
+- plasma
+- wal
+- xorg-server-xephyr
