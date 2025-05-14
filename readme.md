@@ -4,6 +4,30 @@ Setup configuration for arch linux
 
 # Outside of dotfiles
 
+## Alacritty
+
+Add the following to the Alacritty config `~/.config/alacritty/alacritty.toml`
+```
+[font]
+size = 8.0
+
+[window]
+opacity = 0.8
+```
+
+## AwesomeWM
+
+Tell Awesome's rc.lua to look for our updated configs in the dotfiles.
+
+1. cd /etc/xdg/awesome to access the config directory.
+2. create directory `/config`.
+3. symlink that to `~/dotfiles/awesome`.
+4. Create a backup of the default rc.lua.
+5. Update rc.lua to contain the following:
+```
+require("config.awesome.rc")
+```
+
 ## .bashrc
 
 Add the following to source the configurations:
@@ -22,3 +46,33 @@ case $session in
     *       )   echo "unknown";;
 esac
 ```
+
+# Useful commands
+Not specifically related to system set up. Documenting useful commands/ snippets as I learn arch linux. These are most often used when running AwesomeWm.
+
+```
+acpi
+```
+- Battery life
+
+```
+journalctl -r
+```
+- Show recent system journal in reverse order.
+
+```
+journalctl -b-1
+```
+- Show journal from previous session. Useful when debugging system crash.
+
+```
+nm-applet
+```
+- Connect to wifi.
+
+```
+ps -C <command name>
+```
+- List the pid of all programs under that command.
+- Eg `ps -C alacritty` to find pid when alacritty crashes :(
+
