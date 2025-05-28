@@ -28,5 +28,6 @@ function screen_g16_default() {
 #Desktop screen functions
 function screen_desktop() {
     xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.86 --pos 1440x700 --output DP-4 --mode 2560x1440 --rate 59.95 --rotate left --pos 0x0
+    echo "this ran"
 }
 

@@ -17,7 +17,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+
+-- my configs
 local init_keys = require("config.awesome.keys")
+local init_tasklist = require("config.awesome.tasklist")
 
 -- Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -51,7 +54,7 @@ end
 -- Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("~/.config/awesome/mytheme.lua")
+beautiful.init("~/dotfiles/awesome/mytheme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -219,7 +222,8 @@ awful.screen.connect_for_each_screen(function(s)
          s.mytaglist,
          s.mypromptbox,
       },
-      s.mytasklist, -- Middle widget
+      --s.mytasklist, -- Middle widget
+      init_tasklist(s),
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
          mykeyboardlayout,

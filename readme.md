@@ -101,6 +101,7 @@ DISPLAY=:1 awesome
 # Required packages
 - awesome
 - feh
+- lua-language-server
 - network-manager-applet (nm-applet)
 - nvidia drivers (system dependent)
 - picom
