@@ -3,6 +3,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias pico8='~/pico-8/pico8'
 alias walp="wal -i ~/Pictures/desktop-images/ && echo 'awesome.restart()' | awesome-client"
+alias todo="cat ~/Documents/todo.txt"
 
 
 function colors() {
