@@ -78,10 +78,23 @@ nm-applet
 - Connect to wifi.
 
 ```
+pactl set-sink-volume @DEFAULT_SINK@ 75%
+```
+- Set volume.
+
+```
 ps -C <command name>
 ```
 - List the pid of all programs under that command.
 - Eg `ps -C alacritty` to find pid when alacritty crashes :(
+
+```
+systemctl --user start mpd
+systemctl --user stop mpd
+
+rmpc
+```
+- Start music player daemon and run `rmpc` frontend.
 
 ```
 wal -i ~/Pictures/desktop-images
