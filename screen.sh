@@ -8,6 +8,8 @@
 # --> xrandr --output DP-2 --mode 3840x2160 --rate 60.00
 # DP-4:
 # --> xrandr --output DP-4 --mode 3840x2160 --rate 60.00
+# HDMI-0:
+# --> xrandr --ouput HDMI-0 --mode 3840x2160 --rate 30.00
 #
 # Based on the current system, go to .bashrc and create aliases to
 # the corresponding screen functions. Eg,
@@ -27,7 +29,7 @@ function screen_g16_default() {
 
 #Desktop screen functions
 function screen_desktop() {
-    xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.86 --pos 1440x700 --output DP-4 --mode 2560x1440 --rate 59.95 --rotate left --pos 0x0
+    xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.86 --pos 1440x700 --output DP-4 --mode 2560x1440 --rate 59.95 --rotate left --pos 0x0 --output HDMI-0 --mode 3840x2160 --rate 59.94 --pos 4000x0
     echo "this ran"
 }
 
