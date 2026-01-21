@@ -10,7 +10,7 @@ function get_git_branch() {
 
 function get_git_branch_ps1() {
     if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
-        echo "${smso}`gcb`${rmso} "  
+        echo -e "\033[37;42m`gcb`\033[0m "
     else
         echo ""
     fi

@@ -176,9 +176,26 @@ function init_keys(modkey)
          { modkey }, "p",
          function() menubar.show() end,
          {description = "show the menubar", group = "launcher"}
+      ),
+
+      awful.key(
+         {}, "XF86AudioRaiseVolume",
+         function()
+            awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%", false)
+         end,
+         {description = "Raise volume", group = "awesome"}
+      ),
+
+      awful.key(
+         {}, "XF86AudioLowerVolume",
+         function()
+            awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%", false)
+         end,
+         {description = "Lower volume", group = "awesome"}
       )
    )
 
+   --[[
    local clientkeys = gears.table.join(
       awful.key(
          { modkey,}, "f",
@@ -247,6 +264,7 @@ function init_keys(modkey)
          {description = "(un)maximize horizontally", group = "client"}
       )
    )
+   ]]--
 
 
    -- Bind all key numbers to tags.
@@ -310,11 +328,12 @@ function init_keys(modkey)
 
    -- Mouse bindings
    root.buttons(gears.table.join(
-      awful.button({ }, 3, function () mymainmenu:toggle() end),
-      awful.button({ }, 4, awful.tag.viewnext),
-      awful.button({ }, 5, awful.tag.viewprev)
+      awful.button({ }, 3, function () mymainmenu:toggle() end)
+      -- awful.button({ }, 4, awful.tag.viewnext),
+      -- awful.button({ }, 5, awful.tag.viewprev)
    ))
 
+   --[[
    clientbuttons = gears.table.join(
       awful.button(
          { }, 1,
@@ -337,10 +356,11 @@ function init_keys(modkey)
          end
       )
    )
+   ]]--
 
    root.keys(globalkeys)
 
-   return clientbuttons
+   -- return clientbuttons
 end
 
 return init_keys

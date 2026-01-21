@@ -9,4 +9,4 @@ if command -v wal > /dev/null 2>&1 && [ "$TERM" = "xterm-kitty" ]; then
     wal -Rqe
 fi
 
-PS1="\033[37;42m\w\033[0m \$(get_git_branch_ps1)"
+PS1="\[\033[37;42m\]\w\[\033[0m\] \$(get_git_branch_ps1)"

@@ -1,5 +1,5 @@
-smso=$(tput smso) #start standout
-rmso=$(tput rmso) #end standout
+#smso=$(tput smso) #start standout
+#rmso=$(tput rmso) #end standout
 
 #alias ls='ls --color=auto'
 #alias grep='grep --color=auto'
