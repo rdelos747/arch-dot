@@ -5,6 +5,7 @@ alias pico8='~/pico-8/pico8'
 #alias walp="wal -i ~/Pictures/desktop-images/ && echo 'awesome.restart()' | awesome-client"
 alias todo="cat ~/Documents/todo.txt"
 alias nsx="~/Documents/nsx/build/bin/nsx"
+alias mlbterm="~/Documents/mlbterm/build/bin/mlbterm"
 
 function sbp() {
     source ~/.bash_profile

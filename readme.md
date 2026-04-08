@@ -4,15 +4,13 @@ Setup configuration for arch linux
 
 # Outside of dotfiles
 
-## Alacritty
+## Kitty
 
-Add the following to the Alacritty config `~/.config/alacritty/alacritty.toml`
+Add the following to the Kitty config `~/.config/kitty/kitty.conf`
 ```
-[font]
-size = 8.0
-
-[window]
-opacity = 0.8
+background_opacity 0.7
+dynamic_background_opacity yes
+font_size 14.0
 ```
 
 ## AwesomeWM
@@ -48,8 +46,8 @@ The `start` command will start x11 with the window manager specified in the firs
 session=$1
 case $session in 
     plasma  )   exec startplasma-x11;;
-    dwm     )   exec dwm;;
     awesome )   exec awesome;;
+    xfce    )   exect startxfce4;;
     *       )   echo "unknown";;
 esac
 ```
@@ -101,6 +99,14 @@ wal -i ~/Pictures/desktop-images
 ```
 - Randomly sets a wallpaper and updates Xresources color scheme.
 - Note: Alacritty will reflect this immediately, but Awesome needs to be restarted to see in the WM.
+
+```
+xconf-query -c <channel> -m
+```
+- Monitors changes to a particular channel in xfce.
+- Useful for figuring out what channels/ devices to mark down when writing scripts to automate xfce4 behavior.
+- Eg; when adding a new monitor to my `walp` command: run `xfconf-query -c xfce4-desktop -m`, then use the settings manager to change the desktop image. Various info about the channel will display in the terminal, which can then be coppied into my script.
+
 
 ```
 Xephyr -br -ac -noreset -screen 1000x1000 :1
