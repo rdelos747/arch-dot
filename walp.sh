@@ -30,8 +30,8 @@ function walp() {
     fi
     
     # laptop g16
-    if ! xfcewp monitorDP-1 $filename; then
-        echo "Failed to set wp for monitorHDMI-0"
+    if ! xfcewp monitoreDP-1 $filename; then
+        echo "Failed to set wp for monitorEDP-1"
     fi
     
     #laptop x220
