@@ -4,7 +4,7 @@ alias pico8='~/pico-8/pico8'
 
 #alias walp="wal -i ~/Pictures/desktop-images/ && echo 'awesome.restart()' | awesome-client"
 alias todo="cat ~/Documents/todo.txt"
-alias nsx="~/Documents/nsx/build/bin/nsx"
+#alias nsx="~/Documents/nsx/build/bin/nsx"
 alias mlbterm="~/Documents/mlbterm/build/bin/mlbterm"
 alias resize="~/dotfiles/xfce/resize.sh"
 
@@ -35,4 +35,33 @@ function colors() {
     #echo -e "\033[37mcolor 37 \033[0m"
     #echo -e "\033[38mcolor 38 \033[0m"
     #echo -e "\033[39mdefault \033[0m"
+}
+
+
+# These work but I have trouble binding
+# them to kitty keybinds
+function kitty_op_inc() {
+    echo "inc"
+    v=$(<./kitty-op)
+    if [[ -z "$v" ]]; then
+        v=5
+    fi
+    if [[ "$v" -lt 9 ]]; then
+        v=$((v + 1))
+    fi
+    kitten @ set-background-opacity 0.$v
+    echo "$v" > ./kitty-op
+}
+
+function kitty_op_dec() {
+    echo "dec"
+    v=$(<./kitty-op)
+    if [[ -z "$v" ]]; then
+        v=5
+    fi
+    if [[ "$v" -gt 1 ]]; then
+        v=$((v - 1))
+    fi
+    kitten @ set-background-opacity 0.$v
+    echo "$v" > ./kitty-op
 }

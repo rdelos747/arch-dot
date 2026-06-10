@@ -1,5 +1,29 @@
 function walp() {
     echo "running walp"
+    de=$(wmctrl -m | awk -F': ' 'NR==1{print $2}')
+    echo "DE:$de"
+    if [ "$de" = "awesome" ]; then
+        walpa
+    else
+        walpx
+    fi
+}
+
+function walpa() {
+    echo "running walpa"
+    output=$(wal -i ~/Pictures/desktop-images/ 2>&1 && echo 'awesome.restart()' | awesome-client)
+    #echo "$output"
+    
+    filename=$(echo "$output" | sed 's/\x1b\[[0-9;]*m//g' | grep image | awk -F ' ' '{print $5}' | sed 's/\.$//')
+    echo "filename: $filename"
+    
+    $(feh --bg-fill ~/Pictures/desktop-images/$filename)
+    
+    wal --preview
+}
+
+function walpx() {
+    echo "running walpx"
     #output=$(wal -i ~/Pictures/desktop-images/ 2>&1 && echo 'awesome.restart()' | awesome-client)    
     output=$(wal -i ~/Pictures/desktop-images/ 2>&1)
     #echo "output:"

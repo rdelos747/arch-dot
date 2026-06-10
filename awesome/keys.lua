@@ -84,7 +84,11 @@ function init_keys(modkey)
 
       -- Standard program
       awful.key(
-         { modkey,}, "w", function () awful.spawn("librewolf") end,
+         {modkey,}, "w", function () awful.spawn("librewolf") end,
+         {description = "Open web browser", group = "launcher"}
+      ),
+      awful.key(
+         {modkey, "Shift"}, "w", function () awful.spawn("librewolf --private-window") end,
          {description = "Open web browser", group = "launcher"}
       ),
       awful.key(
@@ -182,6 +186,7 @@ function init_keys(modkey)
          {description = "show the menubar", group = "launcher"}
       ),
 
+      -- Volume
       awful.key(
          {}, "XF86AudioRaiseVolume",
          function()
@@ -196,6 +201,23 @@ function init_keys(modkey)
             awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%", false)
          end,
          {description = "Lower volume", group = "awesome"}
+      ),
+      
+      -- Brightness
+      awful.key(
+         {}, "XF86MonBrightnessUp",
+         function()
+            awful.spawn.with_shell("brightnessctl -q set 10%+", false)
+         end,
+         {description = "Raise screen brightness", group = "awesome"}
+      ),
+      
+      awful.key(
+         {}, "XF86MonBrightnessDown",
+         function()
+            awful.spawn.with_shell("brightnessctl -q set 10%-", false)
+         end,
+         {description = "Raise screen brightness", group = "awesome"}
       )
    )
    
